@@ -1,0 +1,22 @@
+{
+  "name": "gcmt",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/8881/gcmt.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/8881/gcmt/issues"
+  },
+  "homepage": "https://github.com/8881/gcmt#readme",
+  "dependencies": {
+    "shelljs": "^0.7.5"
+  }
+}
