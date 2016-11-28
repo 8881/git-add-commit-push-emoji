@@ -1,21 +1,24 @@
 {
-  "name": "gcmt",
+  "name": "git-add-commit-push-emoji",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "acp": "node ./index.js"
+  },
   "scripts": {
     "test": "echo 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/8881/gcmt.git"
+    "url": "git+https://github.com/8881/git-add-commit-push-emoji.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/8881/gcmt/issues"
+    "url": "https://github.com/8881/git-add-commit-push-emoji/issues"
   },
-  "homepage": "https://github.com/8881/gcmt#readme",
+  "homepage": "https://github.com/8881/git-add-commit-push-emoji#readme",
   "dependencies": {
     "shelljs": "^0.7.5"
   }
