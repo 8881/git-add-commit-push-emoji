@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
 'use strict';
+require('babel-core/register');
 
-console.log('yes.');
+require('./build/acp');
