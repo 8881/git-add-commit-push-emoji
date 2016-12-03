@@ -45,12 +45,12 @@ var tasks = new _listr2.default([{
             case 4:
               commit = _context.sent;
 
-              if (!(commit.stderr !== '')) {
+              if (!commit.failed) {
                 _context.next = 7;
                 break;
               }
 
-              throw new Error(commit.stderr);
+              throw new Error(commit);
 
             case 7:
             case "end":
@@ -85,22 +85,14 @@ var tasks = new _listr2.default([{
             case 6:
               pu = _context2.sent;
 
-              if (!(pu.stdout !== '')) {
-                _context2.next = 11;
+              if (!pu.failed) {
+                _context2.next = 9;
                 break;
               }
 
-              throw new Error(pu.stdout);
+              throw new Error(pu);
 
-            case 11:
-              if (!(pu.stderr !== '')) {
-                _context2.next = 13;
-                break;
-              }
-
-              throw new Error(pu.stderr);
-
-            case 13:
+            case 9:
             case "end":
               return _context2.stop();
           }
@@ -115,7 +107,7 @@ var tasks = new _listr2.default([{
 }], { concurrent: true });
 
 tasks.run().catch(function (err) {
-  console.error(err);
+  console.error(err.stdout || err.stderr);
 });
 
 // yargs

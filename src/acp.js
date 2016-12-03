@@ -16,8 +16,8 @@ const tasks = new Listr([
       const logs = `${log || ''} ${emoji.get('smile')}`;
       console.log(logs);
       const commit = await execa(`git`, [`commit`, `-m`, `${logs}`]);
-      if (commit.stderr !== '') {
-        throw new Error(commit.stderr);
+      if (commit.failed) {
+        throw new Error(commit);
       }
     }
   }, {
@@ -26,17 +26,15 @@ const tasks = new Listr([
       const sh = await execa.stdout(`git`, [`rev-parse`, `--abbrev-ref`, `HEAD`]);
       const branch = sh.replace(/^\*\s/g, '');
       const pu = await execa(`git`, [`push`, `origin`, `${branch}`]);
-      if (pu.stdout !== '') {
-        throw new Error(pu.stdout);
-      } else if (pu.stderr !== '') {
-        throw new Error(pu.stderr);
+      if (pu.failed) {
+        throw new Error(pu);
       }
     }
   }
 ], {concurrent: true});
 
 tasks.run().catch(err => {
-  console.error(err);
+  console.error(err.stdout || err.stderr);
 });
 
 // yargs
