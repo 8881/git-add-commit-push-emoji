@@ -31,25 +31,28 @@ var tasks = new _listr2.default([{
   title: "git commit",
   task: function () {
     var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee() {
-      var commit;
+      var logs, commit;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
-              return (0, _execa2.default)("git", ["commit", "-m", log + " " + _nodeEmoji2.default.get('smile')]);
+              logs = log + " " + _nodeEmoji2.default.get('smile');
 
-            case 2:
+              console.log(logs);
+              _context.next = 4;
+              return (0, _execa2.default)("git", ["commit", "-m", "" + logs]);
+
+            case 4:
               commit = _context.sent;
 
               if (!(commit.stderr !== '')) {
-                _context.next = 5;
+                _context.next = 7;
                 break;
               }
 
               throw new Error(commit.stderr);
 
-            case 5:
+            case 7:
             case "end":
               return _context.stop();
           }
