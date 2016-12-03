@@ -27,7 +27,7 @@ var tasks = new _listr2.default([{
 }, {
   title: "git push",
   task: function task() {
-    var branch = (0, _execa2.default)("git", ["rev-parse", "--abbrev-ref HEAD"]).then(function (res) {
+    var branch = _execa2.default.stdout("git", ["rev-parse", "--abbrev-ref HEAD"]).then(function (res) {
       return console.log(res);
     });
     console.log(branch);
