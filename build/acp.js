@@ -39,14 +39,14 @@ var tasks = new _listr2.default([{
               console.log(log);
               console.log(_nodeEmoji2.default.get('smile'));
               _context.next = 4;
-              return _execa2.default.stdout("git", ["commit", "-m", "" + log + _nodeEmoji2.default.get('smile')]);
+              return (0, _execa2.default)("git", ["commit", "-m", "" + log + _nodeEmoji2.default.get('smile')]);
 
             case 4:
               res = _context.sent;
 
               console.log(res);
               if (res !== '') {
-                // throw new Error(res);
+                console.log(res.stderr);
               }
 
             case 7:
