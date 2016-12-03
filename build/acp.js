@@ -37,7 +37,7 @@ var tasks = new _listr2.default([{
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return (0, _execa2.default)("git", ["commit", "-m", "" + log + _nodeEmoji2.default.get('smile')]);
+              return (0, _execa2.default)("git", ["commit", "-m", log + " " + _nodeEmoji2.default.get('smile')]);
 
             case 2:
               res = _context.sent;
