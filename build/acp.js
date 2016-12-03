@@ -68,7 +68,7 @@ var tasks = new _listr2.default([{
   title: "git push",
   task: function () {
     var _ref2 = _asyncToGenerator(regeneratorRuntime.mark(function _callee2() {
-      var sh, branch;
+      var sh, branch, pu;
       return regeneratorRuntime.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
@@ -83,9 +83,24 @@ var tasks = new _listr2.default([{
               return (0, _execa2.default)("git", ["push", "origin", "" + branch]);
 
             case 6:
-              console.log("done.");
+              pu = _context2.sent;
 
-            case 7:
+              if (!(pu.stdout !== '')) {
+                _context2.next = 11;
+                break;
+              }
+
+              throw new Error(pu.stdout);
+
+            case 11:
+              if (!(pu.stderr !== '')) {
+                _context2.next = 13;
+                break;
+              }
+
+              throw new Error(pu.stderr);
+
+            case 13:
             case "end":
               return _context2.stop();
           }

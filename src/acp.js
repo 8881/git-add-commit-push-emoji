@@ -25,8 +25,12 @@ const tasks = new Listr([
     task: async() => {
       const sh = await execa.stdout(`git`, [`rev-parse`, `--abbrev-ref`, `HEAD`]);
       const branch = sh.replace(/^\*\s/g, '');
-      await execa(`git`, [`push`, `origin`, `${branch}`]);
-      console.log(`done.`);
+      const pu = await execa(`git`, [`push`, `origin`, `${branch}`]);
+      if (pu.stdout !== '') {
+        throw new Error(pu.stdout);
+      } else if (pu.stderr !== '') {
+        throw new Error(pu.stderr);
+      }
     }
   }
 ], {concurrent: true});
