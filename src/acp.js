@@ -13,7 +13,7 @@ const tasks = new Listr([
   }, {
     title: `git push`,
     task: () => {
-      const branch = execa.stdout(`git`, [`branch`]).then(res => console.log(res));
+      const branch = execa.stdout(`git`, [`symbolic-ref --short HEAD`]).then(res => console.log(res));
       console.log(branch);
       // execa(`git`, [`push origin ${branch}`]);
     }
