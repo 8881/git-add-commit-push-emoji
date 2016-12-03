@@ -16,9 +16,8 @@ const tasks = new Listr([
       console.log(log);
       console.log(emoji.get('smile'));
       const res = await execa(`git`, [`commit`, `-m`, `${log}${emoji.get('smile')}`]);
-      console.log(res);
-      if (res !== '') {
-        console.log(res.stderr);
+      if (res.stderr !== '') {
+        throw new Error(res.stderr);
       }
     }
   }, {

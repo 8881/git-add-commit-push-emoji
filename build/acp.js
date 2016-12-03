@@ -44,10 +44,12 @@ var tasks = new _listr2.default([{
             case 4:
               res = _context.sent;
 
-              console.log(res);
-              if (res !== '') {
-                console.log(res.stderr);
+              if (!(res.stderr !== '')) {
+                _context.next = 7;
+                break;
               }
+
+              throw new Error(res.stderr);
 
             case 7:
             case "end":
