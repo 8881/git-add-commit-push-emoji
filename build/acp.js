@@ -27,7 +27,7 @@ var tasks = new _listr2.default([{
 }, {
   title: "git push",
   task: function task() {
-    var branch = _execa2.default.stdout("git", ["branch | grep *"]).then(function (res) {
+    var branch = _execa2.default.stdout("git", ["branch | grep * | cut -d ' ' -f2"]).then(function (res) {
       return console.log(res);
     });
     console.log(branch);
