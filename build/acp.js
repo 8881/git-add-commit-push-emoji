@@ -36,7 +36,7 @@ var tasks = new _listr2.default([{
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              logs = log + " " + _nodeEmoji2.default.get('smile');
+              logs = (log || '') + " " + _nodeEmoji2.default.get('smile');
 
               console.log(logs);
               _context.next = 4;
