@@ -28,9 +28,9 @@ var tasks = new _listr2.default([{
   title: "git push",
   task: function task() {
     var branch = _execa2.default.stdout("git", ["branch"]).then(function (res) {
-      return console.log(res);
+      return res;
     });
-    console.log(branch.replace(/^*\s./g, ''));
+    console.log(branch);
     // execa(`git`, [`push origin ${branch}`]);
   }
 }], { concurrent: true });
