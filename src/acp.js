@@ -14,7 +14,8 @@ const tasks = new Listr([
     title: `git push`,
     task: async() => {
       const sh = await execa.stdout(`git`, [`rev-parse`, `--abbrev-ref`, `HEAD`]);
-      const branch = sh.stdout.replace(/^\*\s/g, '');
+      const branch = sh.replace(/^\*\s/g, '');
+      console.log(branch);
       execa(`git`, [`push`, `origin`, `${branch}`]);
     }
   }

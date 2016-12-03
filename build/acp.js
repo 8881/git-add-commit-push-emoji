@@ -40,11 +40,12 @@ var tasks = new _listr2.default([{
 
             case 2:
               sh = _context.sent;
-              branch = sh.stdout.replace(/^\*\s/g, '');
+              branch = sh.replace(/^\*\s/g, '');
 
+              console.log(branch);
               (0, _execa2.default)("git", ["push", "origin", "" + branch]);
 
-            case 5:
+            case 6:
             case "end":
               return _context.stop();
           }
