@@ -9,7 +9,7 @@ const tasks = new Listr([
   },
   {
     title: `git commit`,
-    task: () => execa(`git`, [`commit`, `-m ${emoji.random().emoji}`])
+    task: () => execa(`git`, [`commit`, `-m`, `${emoji.random().emoji}`]).then(res => console.log(res))
   }, {
     title: `git push`,
     task: () => {

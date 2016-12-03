@@ -22,7 +22,9 @@ var tasks = new _listr2.default([{
 }, {
   title: "git commit",
   task: function task() {
-    return (0, _execa2.default)("git", ["commit", "-m " + _nodeEmoji2.default.random().emoji]);
+    return (0, _execa2.default)("git", ["commit", "-m", "" + _nodeEmoji2.default.random().emoji]).then(function (res) {
+      return console.log(res);
+    });
   }
 }, {
   title: "git push",
