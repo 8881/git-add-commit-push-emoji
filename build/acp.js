@@ -109,5 +109,3 @@ tasks.run().catch(function (err) {
 //   .help('h')
 //   .alias('h', 'help')
 //   .describe('h', 'show help info').argv;
-
-console.log(_yargs2.default.argv._);

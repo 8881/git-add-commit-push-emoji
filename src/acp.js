@@ -44,5 +44,3 @@ tasks.run().catch(err => {
 //   .help('h')
 //   .alias('h', 'help')
 //   .describe('h', 'show help info').argv;
-
-console.log(yargs.argv._);
