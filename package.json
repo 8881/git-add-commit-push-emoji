@@ -1,6 +1,6 @@
 {
   "name": "git-add-commit-push-emoji",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "",
   "bin": {
     "acp": "node build/acp.js"
