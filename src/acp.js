@@ -13,8 +13,8 @@ const tasks = new Listr([
   }, {
     title: `git push`,
     task: () => {
-      const sh = execa(`git`, [`rev-parse`, `--abbrev-ref`, `HEAD`]);
-      const branch = sh.stdout.replace(/^\*\s/g, '');
+      const sh = execa.stdout(`git`, [`rev-parse`, `--abbrev-ref`, `HEAD`]).then(res => console.log(res));
+      // const branch = sh.stdout.replace(/^\*\s/g, '');
       // execa(`git`, [`push`, `origin`, `${branch}`]);
     }
   }
