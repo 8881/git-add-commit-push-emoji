@@ -9,11 +9,11 @@ const tasks = new Listr([
   },
   {
     title: `git commit`,
-    task: () => execa(`git`, [`commit`, `-m`, `${emoji.random().emoji}`]).then(res => console.log(res.stdout))
+    task: () => execa(`git`, [`commit`, `-m`, `${emoji.random().emoji}`])
   }, {
     title: `git push`,
     task: () => {
-      const sh = execa.sync(`git`, [`branch`]);
+      const sh = execa(`git`, [`rev-parse`, `--abbrev-ref`, `HEAD`]);
       const branch = sh.stdout.replace(/^\*\s/g, '');
       execa(`git`, [`push`, `origin`, `${branch}`]);
     }
