@@ -1,9 +1,38 @@
-'use strict';
+"use strict";
 
-var _shelljs = require('shelljs');
+var _execa = require("execa");
 
-var _shelljs2 = _interopRequireDefault(_shelljs);
+var _execa2 = _interopRequireDefault(_execa);
+
+var _nodeEmoji = require("node-emoji");
+
+var _nodeEmoji2 = _interopRequireDefault(_nodeEmoji);
+
+var _listr = require("listr");
+
+var _listr2 = _interopRequireDefault(_listr);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_shelljs2.default.echo('yes.');
+var tasks = new _listr2.default([{
+  title: "git add",
+  task: function task() {
+    return (0, _execa2.default)("git", ["add", "."]);
+  }
+}, {
+  title: "git commit",
+  task: function task() {
+    return (0, _execa2.default)("git", ["commit", "-m " + _nodeEmoji2.default.get('smile')]);
+  }
+}, {
+  title: "git push",
+  task: function task() {
+    return (0, _execa2.default)("git", ["push"]);
+  }
+}], { concurrent: true });
+
+tasks.run().catch(function (err) {
+  console.error(err);
+});
+
+// sh.echo(em.emoji);
