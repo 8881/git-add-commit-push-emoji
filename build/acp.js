@@ -31,7 +31,7 @@ var tasks = new _listr2.default([{
   title: "git commit",
   task: function () {
     var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee() {
-      var res;
+      var commit;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -40,14 +40,14 @@ var tasks = new _listr2.default([{
               return (0, _execa2.default)("git", ["commit", "-m", log + " " + _nodeEmoji2.default.get('smile')]);
 
             case 2:
-              res = _context.sent;
+              commit = _context.sent;
 
-              if (!(res.stderr !== '')) {
+              if (!(commit.stderr !== '')) {
                 _context.next = 5;
                 break;
               }
 
-              throw new Error(res.stderr);
+              throw new Error(commit.stderr);
 
             case 5:
             case "end":
