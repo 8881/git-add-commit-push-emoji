@@ -34,7 +34,7 @@ var tasks = new _listr2.default([{
 }], { concurrent: true });
 
 tasks.run().catch(function (err) {
-  console.error(err);
+  console.error(err.stdout);
 });
 
 // sh.echo(em.emoji);

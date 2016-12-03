@@ -21,7 +21,7 @@ const tasks = new Listr([
 ], {concurrent: true});
 
 tasks.run().catch(err => {
-  console.error(err);
+  console.error(err.stdout);
 });
 
 // sh.echo(em.emoji);
