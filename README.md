@@ -21,7 +21,7 @@ acp
 ### acp -e
 修改默认 emoji 表情，可以选择一个，或者直接选择随机，那么在提交的时候会自动添加
 
-### acp mode
+### acp -m --mode
 > single one emoji   // 使用固定一种emoji
 > random add one emoji   // 随机使用一种emoji
 > none   // 不使用emoji

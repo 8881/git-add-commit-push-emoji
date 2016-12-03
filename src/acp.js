@@ -1,5 +1,5 @@
 import execa from "execa";
-import emoji from 'node-emoji';
+import emoji from "node-emoji";
 import Listr from "listr";
 
 const tasks = new Listr([
@@ -9,10 +9,13 @@ const tasks = new Listr([
   },
   {
     title: `git commit`,
-    task: () => execa(`git`, [`commit`,`-m ${emoji.get('smile')}`])
-  },{
+    task: () => execa(`git`, [`commit`, `-m ${emoji.random().emoji}`])
+  }, {
     title: `git push`,
-    task: () => execa(`git`, [`push`])
+    task: () => {
+      const branch = execa(`git`, [`rev-parse`, `--abbrev-ref`, `HEAD`]);
+      execa(`git`, [`push origin ${branch}`]);
+    }
   }
 ], {concurrent: true});
 

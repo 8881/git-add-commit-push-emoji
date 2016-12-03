@@ -22,12 +22,13 @@ var tasks = new _listr2.default([{
 }, {
   title: "git commit",
   task: function task() {
-    return (0, _execa2.default)("git", ["commit", "-m " + _nodeEmoji2.default.get('smile')]);
+    return (0, _execa2.default)("git", ["commit", "-m " + _nodeEmoji2.default.random().emoji]);
   }
 }, {
   title: "git push",
   task: function task() {
-    return (0, _execa2.default)("git", ["push"]);
+    var branch = (0, _execa2.default)("git", ["rev-parse", "--abbrev-ref", "HEAD"]);
+    (0, _execa2.default)("git", ["push origin " + branch]);
   }
 }], { concurrent: true });
 
