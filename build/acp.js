@@ -76,11 +76,13 @@ var tasks = new _listr2.default([{
             case 2:
               sh = _context2.sent;
               branch = sh.replace(/^\*\s/g, '');
-              // await execa(`git`, [`push`, `origin`, `${branch}`]);
+              _context2.next = 6;
+              return (0, _execa2.default)("git", ["push", "origin", "" + branch]);
 
+            case 6:
               console.log("done.");
 
-            case 5:
+            case 7:
             case "end":
               return _context2.stop();
           }
