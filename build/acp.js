@@ -31,7 +31,7 @@ var tasks = new _listr2.default([{
       return console.log(res);
     });
     console.log(branch);
-    (0, _execa2.default)("git", ["push origin " + branch]);
+    // execa(`git`, [`push origin ${branch}`]);
   }
 }], { concurrent: true });
 
