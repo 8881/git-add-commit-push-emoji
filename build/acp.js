@@ -45,15 +45,11 @@ var tasks = new _listr2.default([{
               res = _context.sent;
 
               console.log(res);
-
-              if (!(res !== '')) {
-                _context.next = 8;
-                break;
+              if (res !== '') {
+                // throw new Error(res);
               }
 
-              throw new Error(res);
-
-            case 8:
+            case 7:
             case "end":
               return _context.stop();
           }
