@@ -27,10 +27,10 @@ var tasks = new _listr2.default([{
 }, {
   title: "git push",
   task: function task() {
-    var branch = _execa2.default.stdout("git", ["branch | grep * | cut -d ' ' -f2"]).then(function (res) {
+    var branch = _execa2.default.stdout("git", ["branch"]).then(function (res) {
       return console.log(res);
     });
-    console.log(branch);
+    console.log(branch.replace(/^*\s./g, ''));
     // execa(`git`, [`push origin ${branch}`]);
   }
 }], { concurrent: true });
