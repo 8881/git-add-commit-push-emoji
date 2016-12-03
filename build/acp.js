@@ -29,7 +29,7 @@ var tasks = new _listr2.default([{
   task: function task() {
     var sh = (0, _execa2.default)("git", ["rev-parse", "--abbrev-ref", "HEAD"]);
     var branch = sh.stdout.replace(/^\*\s/g, '');
-    (0, _execa2.default)("git", ["push", "origin", "" + branch]);
+    // execa(`git`, [`push`, `origin`, `${branch}`]);
   }
 }], { concurrent: true });
 
