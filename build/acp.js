@@ -36,22 +36,24 @@ var tasks = new _listr2.default([{
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
-              return _execa2.default.stdout("git", ["commit", "-m", log + " " + _nodeEmoji2.default.get('smile')]);
+              console.log(log);
+              console.log(_nodeEmoji2.default.get('smile'));
+              _context.next = 4;
+              return _execa2.default.stdout("git", ["commit", "-m", "" + log + _nodeEmoji2.default.get('smile')]);
 
-            case 2:
+            case 4:
               res = _context.sent;
 
               console.log(res);
 
               if (!(res !== '')) {
-                _context.next = 6;
+                _context.next = 8;
                 break;
               }
 
               throw new Error(res);
 
-            case 6:
+            case 8:
             case "end":
               return _context.stop();
           }

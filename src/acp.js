@@ -13,7 +13,9 @@ const tasks = new Listr([
   {
     title: `git commit`,
     task: async() => {
-      const res = await execa.stdout(`git`, [`commit`, `-m`, `${log} ${emoji.get('smile')}`]);
+      console.log(log);
+      console.log(emoji.get('smile'));
+      const res = await execa.stdout(`git`, [`commit`, `-m`, `${log}${emoji.get('smile')}`]);
       console.log(res);
       if (res !== '') {
         throw new Error(res);
