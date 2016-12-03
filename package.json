@@ -3,7 +3,7 @@
   "version": "0.1.5",
   "description": "",
   "bin": {
-    "acp": "build/acp.js"
+    "acp": "index.js"
   },
   "scripts": {
     "dev": "babel ./src --out-dir ./build --watch"
