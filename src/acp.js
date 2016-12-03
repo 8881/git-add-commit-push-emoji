@@ -14,6 +14,7 @@ const tasks = new Listr([
     title: `git commit`,
     task: async() => {
       const res = await execa.stdout(`git`, [`commit`, `-m`, `${log} ${emoji.get('smile')}`]);
+      console.log(res);
       if (res !== '') {
         throw new Error(res);
       }
@@ -23,14 +24,14 @@ const tasks = new Listr([
     task: async() => {
       const sh = await execa.stdout(`git`, [`rev-parse`, `--abbrev-ref`, `HEAD`]);
       const branch = sh.replace(/^\*\s/g, '');
-      await execa(`git`, [`push`, `origin`, `${branch}`]);
+      // await execa(`git`, [`push`, `origin`, `${branch}`]);
       console.log(`done.`);
     }
   }
 ], {concurrent: true});
 
 tasks.run().catch(err => {
-  console.error(err.stdout);
+  console.error(err);
 });
 
 // yargs

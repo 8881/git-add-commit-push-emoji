@@ -42,14 +42,16 @@ var tasks = new _listr2.default([{
             case 2:
               res = _context.sent;
 
+              console.log(res);
+
               if (!(res !== '')) {
-                _context.next = 5;
+                _context.next = 6;
                 break;
               }
 
               throw new Error(res);
 
-            case 5:
+            case 6:
             case "end":
               return _context.stop();
           }
@@ -76,13 +78,11 @@ var tasks = new _listr2.default([{
             case 2:
               sh = _context2.sent;
               branch = sh.replace(/^\*\s/g, '');
-              _context2.next = 6;
-              return (0, _execa2.default)("git", ["push", "origin", "" + branch]);
+              // await execa(`git`, [`push`, `origin`, `${branch}`]);
 
-            case 6:
               console.log("done.");
 
-            case 7:
+            case 5:
             case "end":
               return _context2.stop();
           }
@@ -97,7 +97,7 @@ var tasks = new _listr2.default([{
 }], { concurrent: true });
 
 tasks.run().catch(function (err) {
-  console.error(err.stdout);
+  console.error(err);
 });
 
 // yargs
