@@ -15,6 +15,7 @@ const tasks = new Listr([
     task: () => {
       const branch = execa.sync(`git`, [`branch`]);
       console.log(branch.stdout);
+      console.log({}.toString.call(branch.stdout));
       // execa(`git`, [`push origin ${branch}`]);
     }
   }
