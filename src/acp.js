@@ -12,10 +12,10 @@ const tasks = new Listr([
     task: () => execa(`git`, [`commit`, `-m`, `${emoji.random().emoji}`])
   }, {
     title: `git push`,
-    task: () => {
-      const sh = execa.stdout(`git`, [`rev-parse`, `--abbrev-ref`, `HEAD`]).then(res => console.log(res));
-      // const branch = sh.stdout.replace(/^\*\s/g, '');
-      // execa(`git`, [`push`, `origin`, `${branch}`]);
+    task: async() => {
+      const sh = await execa.stdout(`git`, [`rev-parse`, `--abbrev-ref`, `HEAD`]);
+      const branch = sh.stdout.replace(/^\*\s/g, '');
+      execa(`git`, [`push`, `origin`, `${branch}`]);
     }
   }
 ], {concurrent: true});
