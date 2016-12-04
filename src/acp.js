@@ -31,7 +31,7 @@ const tasks = new Listr([
       }
     }
   }
-], {concurrent: true});
+]);
 
 tasks.run().catch(err => {
   console.error(err.stdout || err.stderr);
