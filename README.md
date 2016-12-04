@@ -34,8 +34,8 @@ emoji会加在自定义log之后，生成最终的提交记录
 #### acp -m --mode
 选择模式
 > single one emoji   // 使用固定一种emoji
-> random add one emoji   // 随机使用一种emoji
-> none   // 不使用emoji
+random add one emoji   // 随机使用一种emoji
+none   // 不使用emoji
 
 #### acp -h --help
 显示帮助信息
