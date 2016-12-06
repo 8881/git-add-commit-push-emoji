@@ -3,7 +3,7 @@ import emoji from "node-emoji";
 import Listr from "listr";
 import yargs from "yargs";
 
-const log = yargs.argv._[0];
+const log = yargs.argv._.join(' ');
 
 const tasks = new Listr([
   {
@@ -36,15 +36,3 @@ const tasks = new Listr([
 tasks.run().catch(err => {
   console.error(err.stdout || err.stderr);
 });
-
-// yargs
-//   .usage(`Usage: acp [log] | [options]`)
-//   .command('acp', 'git add && git commit && git push')
-//   .example(`acp mylog`, `(git commit -am 'mylog [emoji]')`)
-//   .alias('m', 'mode')
-//   .nargs('m', 1)
-//   .describe('m', 'choose a mode')
-//   .demand(1, ['m'])
-//   .help('h')
-//   .alias('h', 'help')
-//   .describe('h', 'show help info').argv;

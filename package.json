@@ -1,6 +1,6 @@
 {
   "name": "git-add-commit-push-emoji",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "",
   "bin": {
     "acp": "index.js"
